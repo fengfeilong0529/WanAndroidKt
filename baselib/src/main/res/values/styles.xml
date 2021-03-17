@@ -14,4 +14,30 @@
         <item name="android:backgroundDimEnabled">true</item>
     </style>
 
+    <!--首页radiobutton样式-->
+    <style name="main_activity_rBtn">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:button">@null</item>
+        <item name="android:textColor">@color/selector_tab_btn</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:paddingTop">8dp</item>
+    </style>
+
+    <!--点击水波效果-->
+    <style name="ripple_bg">
+        <item name="android:background">?android:attr/selectableItemBackground</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+    <!--设置的item的间隔线-->
+    <style name="item_line_view">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1px</item>
+        <item name="android:background">@drawable/view_line</item>
+    </style>
+
+
 </resources>

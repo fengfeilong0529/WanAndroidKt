@@ -93,5 +93,11 @@ class BasicDataType {
         //读取数组内容
         println(a[0])    // 输出结果：1
         println(b[1])    // 输出结果：2
+
+        //集合
+        val list = listOf("a","b","c")
+        for (item in list.withIndex()){
+
+        }
     }
 }

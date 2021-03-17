@@ -37,4 +37,17 @@
     <color name="color_btn_blue_dark">#0C2944</color>
     <color name="color_btn_online_blue">#00B3EA</color>
 
+    <color name="color_tab_sel">#5588E3</color>
+    <color name="color_btn_normal">#4364FA</color>
+    <color name="color_btn_pressed">#3653D6</color>
+    <color name="color_title_line">#ffcccccc</color>
+    <color name="color_divider_line">#66cccccc</color>
+    <color name="color_divider_line2">#C363EAD0</color>
+    <color name="colorGrayTxt">#b3b3b3</color>
+    <color name="main_color_unselected">#7b7b7b</color>
+    <color name="colorLineBg">#ecebeb</color>
+    <color name="colorMediumGray">#999999</color>
+    <color name="switch_green">#64db61</color>
+    <color name="color_item_edit">#606060</color>
+
 </resources>

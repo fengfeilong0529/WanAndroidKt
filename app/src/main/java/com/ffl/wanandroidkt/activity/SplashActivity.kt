@@ -15,7 +15,6 @@ class SplashActivity : AppCompatActivity() {
         //设置全屏
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
-
         setContentView(R.layout.activity_splash)
         initData()
     }

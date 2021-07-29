@@ -4,7 +4,7 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:context=".activity.MainActivity">
+                tools:context=".ui.main.activity.MainActivity">
 
     <RadioGroup
             android:id="@+id/rg_tab_bar"
@@ -54,13 +54,5 @@
             android:overScrollMode="never"
             android:scrollbars="none"
             android:layout_above="@+id/rg_tab_bar"/>
-
-    <!--<View-->
-    <!--android:id="@+id/viewPager"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent"-->
-    <!--android:overScrollMode="never"-->
-    <!--android:scrollbars="none"-->
-    <!--android:layout_above="@+id/rg_tab_bar"/>-->
 
 </RelativeLayout>

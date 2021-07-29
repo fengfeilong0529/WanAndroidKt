@@ -181,4 +181,34 @@ class Grammar {
         }
     }
 
+    /********************↓↓↓*************************/
+
+    /**
+     * by lazy
+     * 仅在第一次使用时 初始化对象
+     */
+    class Bean {
+        val str by lazy {
+            println("Init lazy")
+            "Hello World"
+        }
+    }
+
+    fun testLazy() {
+        val bean = Bean()
+        println("Init Bean")
+        println(bean.str)
+        println(bean.str)
+
+        /**
+         * 输出结果如下：
+         * Init Bean
+         * Init lazy
+         * Hello World
+         * Hello World
+         */
+    }
+
+    /********************↑↑↑*************************/
+
 }

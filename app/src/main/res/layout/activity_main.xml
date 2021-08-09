@@ -9,7 +9,7 @@
     <RadioGroup
             android:id="@+id/rg_tab_bar"
             android:layout_width="match_parent"
-            android:layout_height="56dp"
+            android:layout_height="50dp"
             android:layout_alignParentBottom="true"
             android:background="@color/white"
             android:orientation="horizontal">
@@ -31,13 +31,13 @@
                 android:id="@+id/rbtnNavigation"
                 style="@style/main_activity_rBtn"
                 android:drawableTop="@drawable/ic_navigation"
-                android:text="导航"/>
+                android:text="问答"/>
 
-        <RadioButton
-                android:id="@+id/rbtnProgram"
-                style="@style/main_activity_rBtn"
-                android:drawableTop="@drawable/ic_program"
-                android:text="项目"/>
+        <!--<RadioButton-->
+                <!--android:id="@+id/rbtnProgram"-->
+                <!--style="@style/main_activity_rBtn"-->
+                <!--android:drawableTop="@drawable/ic_program"-->
+                <!--android:text="项目"/>-->
 
         <RadioButton
                 android:id="@+id/rbtnMy"

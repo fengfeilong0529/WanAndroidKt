@@ -44,6 +44,10 @@ dependencies {
 //    api 'com.squareup.okhttp3:okhttp:3.12.0'
     //logger
     api 'com.orhanobut:logger:2.2.0'
+    api 'androidx.recyclerview:recyclerview:1.2.0-alpha01'
+    api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4'
+    //banner
+    api 'io.github.youth5201314:banner:2.2.2'
 }
 repositories {
     mavenCentral()

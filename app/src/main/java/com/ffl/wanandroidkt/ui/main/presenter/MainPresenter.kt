@@ -21,7 +21,8 @@ class MainPresenter : BasePresenter<MainView>() {
             override fun onSuccess(data: BaseModel<MainModel>) {
                 if (data != null) {
                     if (data.errorCode == 0) {
-                        getBaseView()!!.setData(data.data)
+//                        getBaseView()!!.setData(data.data)
+                        getBaseView()!!.setMainData(data.data,101)
                     } else {
                         getBaseView()!!.setError(data.errorMsg)
                     }
@@ -39,7 +40,8 @@ class MainPresenter : BasePresenter<MainView>() {
             override fun onSuccess(data: BaseModel<List<BannerModel>>) {
                 if (data != null) {
                     if (data.errorCode == 0) {
-                        getBaseView()!!.setData(data.data)
+//                        getBaseView()!!.setData(data.data)
+                        getBaseView()!!.setMainData(data.data,102)
                     } else {
                         getBaseView()!!.setError(data.errorMsg)
                     }

@@ -1,9 +1,11 @@
 package com.ffl.wanandroidkt.base
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.ffl.wanandroidkt.mvp.presenter.BasePresenter
 import com.ffl.wanandroidkt.mvp.view.BaseView
@@ -24,10 +26,6 @@ abstract class BaseFragment<V, P : BasePresenter<V>> : Fragment(), BaseView {
         return view
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-    }
-
     abstract fun createPresenter(): P?
 
     abstract fun getLayoutId(): Int
@@ -38,8 +36,13 @@ abstract class BaseFragment<V, P : BasePresenter<V>> : Fragment(), BaseView {
 
     fun getPresenter() = mPresenter
 
-    override fun onDestroy() {
-        super.onDestroy()
+    @SuppressLint("ShowToast")
+    protected fun showToast(msg: String) {
+        Toast.makeText(MyApp.getInstance(), msg, Toast.LENGTH_SHORT)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
         mPresenter!!.unbindView()
     }
 }

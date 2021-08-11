@@ -59,7 +59,6 @@ public class TimeConvertUtils {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-
         return result;
     }
 

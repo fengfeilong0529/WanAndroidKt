@@ -68,7 +68,7 @@ class MainModel {
         var desc: String? = null
         var descMd: String? = null
         var envelopePic: String? = null
-        var isFresh: Boolean = false
+        var fresh: Boolean = false
         var host: String? = null
         var id: Int = 0
         var link: String? = null
@@ -91,7 +91,7 @@ class MainModel {
         var zan: Int = 0
         var tags: List<*>? = null
         override fun toString(): String {
-            return "DatasBean(apkLink=$apkLink, audit=$audit, author=$author, isCanEdit=$isCanEdit, chapterId=$chapterId, chapterName=$chapterName, isCollect=$isCollect, courseId=$courseId, desc=$desc, descMd=$descMd, envelopePic=$envelopePic, isFresh=$isFresh, host=$host, id=$id, link=$link, niceDate=$niceDate, niceShareDate=$niceShareDate, origin=$origin, prefix=$prefix, projectLink=$projectLink, publishTime=$publishTime, realSuperChapterId=$realSuperChapterId, selfVisible=$selfVisible, shareDate=$shareDate, shareUser=$shareUser, superChapterId=$superChapterId, superChapterName=$superChapterName, title=$title, type=$type, userId=$userId, visible=$visible, zan=$zan, tags=$tags)"
+            return "DatasBean(apkLink=$apkLink, audit=$audit, author=$author, isCanEdit=$isCanEdit, chapterId=$chapterId, chapterName=$chapterName, isCollect=$isCollect, courseId=$courseId, desc=$desc, descMd=$descMd, envelopePic=$envelopePic, fresh=$fresh, host=$host, id=$id, link=$link, niceDate=$niceDate, niceShareDate=$niceShareDate, origin=$origin, prefix=$prefix, projectLink=$projectLink, publishTime=$publishTime, realSuperChapterId=$realSuperChapterId, selfVisible=$selfVisible, shareDate=$shareDate, shareUser=$shareUser, superChapterId=$superChapterId, superChapterName=$superChapterName, title=$title, type=$type, userId=$userId, visible=$visible, zan=$zan, tags=$tags)"
         }
 
 

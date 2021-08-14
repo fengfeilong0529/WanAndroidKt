@@ -14,7 +14,7 @@
             android:visibility="gone"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:textColor="@color/color_btn_blue"
+            android:textColor="@color/colorAccent"
             android:textSize="12sp"
             android:paddingEnd="6dp"
             android:id="@+id/tvNew"/>
@@ -90,6 +90,16 @@
             app:layout_constraintBottom_toBottomOf="parent"
             android:textColor="@color/color_999"
             android:textSize="12sp"/>
+
+    <ImageView
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:scaleType="centerInside"
+            android:clickable="true"
+            android:src="@drawable/ic_collect"
+            app:layout_constraintTop_toTopOf="@+id/tvOrder"
+            app:layout_constraintBottom_toBottomOf="@+id/tvOrder"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

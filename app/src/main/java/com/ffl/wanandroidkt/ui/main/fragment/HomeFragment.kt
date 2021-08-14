@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.listener.OnItemClickListener
+import com.chad.library.adapter.base.listener.OnLoadMoreListener
 import com.ffl.wanandroidkt.R
 import com.ffl.wanandroidkt.base.BaseFragment
 import com.ffl.wanandroidkt.ui.main.activity.WebActivity
@@ -23,11 +24,12 @@ import com.youth.banner.listener.OnBannerListener
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
 
-class HomeFragment : BaseFragment<MainView, MainPresenter>(), MainView {
+class HomeFragment : BaseFragment<MainView, MainPresenter>(), MainView, OnLoadMoreListener {
 
     private var mHomeList = mutableListOf<MainModel.DatasBean>()
     private var mAdapter = HomeRvAdapter(R.layout.item_home_rv, mHomeList)
     private var mRvHome: RecyclerView? = null
+    private var mPageIndex = 0
 
     override fun createPresenter() = MainPresenter()
 
@@ -44,11 +46,16 @@ class HomeFragment : BaseFragment<MainView, MainPresenter>(), MainView {
                 WebActivity.startActivity(activity!!, title, link)
             }
         })
+        mAdapter.loadMoreModule.setOnLoadMoreListener(this)
     }
 
     override fun initData() {
-        getPresenter()!!.getHomeArticleList()
+        loadArticleList()
         getPresenter()!!.getHomeBanner()
+    }
+
+    private fun loadArticleList() {
+        getPresenter()!!.getHomeArticleList(mPageIndex)
     }
 
     override fun <T> setData(data: T) {
@@ -58,11 +65,17 @@ class HomeFragment : BaseFragment<MainView, MainPresenter>(), MainView {
         super.setMainData(data, code)
         if (code == 101) {
             if (data is MainModel) {
-                mAdapter.setNewData(data.datas as MutableList<MainModel.DatasBean>?)
+                mPageIndex++
+                if (mPageIndex == 1){
+                    mAdapter.setNewData(data.datas as MutableList<MainModel.DatasBean>?)
+                }else{
+                    mAdapter.addData(data.datas as MutableList<MainModel.DatasBean>)
+                }
+                mAdapter.loadMoreModule.isEnableLoadMore = data.curPage != data.pageCount
+                mAdapter.loadMoreModule.loadMoreComplete()
             }
         } else if (code == 102) {
 //            Log.e("FFL", "=====轮播图=====$data")
-            showToast("haha")
             val list = data as List<BannerModel>
             vpBanner.addBannerLifecycleObserver(this)
                 .setAdapter(object : BannerImageAdapter<BannerModel>(list) {
@@ -86,6 +99,9 @@ class HomeFragment : BaseFragment<MainView, MainPresenter>(), MainView {
         showToast(err)
     }
 
+    override fun onLoadMore() {
+        loadArticleList()
+    }
 
     private fun openWeb(title: String, url: String) {
         Intent(activity, WebActivity::class.java).run {

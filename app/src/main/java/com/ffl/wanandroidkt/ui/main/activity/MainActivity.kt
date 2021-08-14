@@ -37,7 +37,6 @@ class MainActivity : BaseActivity<MainView, MainPresenter>(), MainView, ViewPage
     }
 
     override fun initData() {
-        getPresenter()!!.getHomeArticleList()
     }
 
     override fun createPresenter(): MainPresenter? = MainPresenter()

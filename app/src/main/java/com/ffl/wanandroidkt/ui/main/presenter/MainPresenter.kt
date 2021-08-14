@@ -15,17 +15,18 @@ class MainPresenter : BasePresenter<MainView>() {
         getBaseView()!!.setData(str)
     }
 
-    fun getHomeArticleList() {
-        HttpUtils.sendHttp(HttpUtils.createApi(MainApi::class.java).getHomeArticleList(), object :
+    /**
+     * 获取首页文章列表
+     * @param pageNum 页码
+     */
+    fun getHomeArticleList(pageNum: Int) {
+        HttpUtils.sendHttp(HttpUtils.createApi(MainApi::class.java).getHomeArticleList(pageNum), object :
             RequestListener<BaseModel<MainModel>> {
             override fun onSuccess(data: BaseModel<MainModel>) {
-                if (data != null) {
-                    if (data.errorCode == 0) {
-//                        getBaseView()!!.setData(data.data)
-                        getBaseView()!!.setMainData(data.data,101)
-                    } else {
-                        getBaseView()!!.setError(data.errorMsg)
-                    }
+                if (data.errorCode == 0) {
+                    getBaseView()!!.setMainData(data.data, 101)
+                } else {
+                    getBaseView()!!.setError(data.errorMsg)
                 }
             }
 
@@ -35,22 +36,24 @@ class MainPresenter : BasePresenter<MainView>() {
         })
     }
 
+    /**
+     * 获取首页banner
+     */
     fun getHomeBanner() {
-        HttpUtils.sendHttp(HttpUtils.createApi(MainApi::class.java).getHomeBanner(), object : RequestListener<BaseModel<List<BannerModel>>>{
-            override fun onSuccess(data: BaseModel<List<BannerModel>>) {
-                if (data != null) {
+        HttpUtils.sendHttp(
+            HttpUtils.createApi(MainApi::class.java).getHomeBanner(),
+            object : RequestListener<BaseModel<List<BannerModel>>> {
+                override fun onSuccess(data: BaseModel<List<BannerModel>>) {
                     if (data.errorCode == 0) {
-//                        getBaseView()!!.setData(data.data)
-                        getBaseView()!!.setMainData(data.data,102)
+                        getBaseView()!!.setMainData(data.data, 102)
                     } else {
                         getBaseView()!!.setError(data.errorMsg)
                     }
                 }
-            }
 
-            override fun onFail(str: String) {
-                getBaseView()!!.setError(str)
-            }
-        })
+                override fun onFail(str: String) {
+                    getBaseView()!!.setError(str)
+                }
+            })
     }
 }

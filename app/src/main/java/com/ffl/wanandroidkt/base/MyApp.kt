@@ -1,21 +1,24 @@
 package com.ffl.wanandroidkt.base
 
 import android.app.Application
+import android.content.Context
+import kotlin.properties.Delegates
 
 class MyApp : Application() {
+
+    companion object {
+
+        lateinit var mInstance: MyApp
+
+        var context: Context by Delegates.notNull()
+            private set
+
+    }
 
     override fun onCreate() {
         super.onCreate()
         mInstance = this
-    }
-
-    companion object {
-
-        private lateinit var mInstance: MyApp
-
-        fun getInstance() = mInstance
-
-        fun getContext() = mInstance.applicationContext
+        context = applicationContext
     }
 
 }

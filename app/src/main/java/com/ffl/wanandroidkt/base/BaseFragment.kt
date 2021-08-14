@@ -1,6 +1,5 @@
 package com.ffl.wanandroidkt.base
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -36,9 +35,8 @@ abstract class BaseFragment<V, P : BasePresenter<V>> : Fragment(), BaseView {
 
     fun getPresenter() = mPresenter
 
-    @SuppressLint("ShowToast")
     protected fun showToast(msg: String) {
-        Toast.makeText(MyApp.getInstance(), msg, Toast.LENGTH_SHORT)
+        Toast.makeText(MyApp.context, msg, Toast.LENGTH_SHORT).show()
     }
 
     override fun onDestroyView() {

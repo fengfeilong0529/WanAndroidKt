@@ -11,10 +11,6 @@ import com.ffl.wanandroidkt.ui.main.view.MainView
 
 class MainPresenter : BasePresenter<MainView>() {
 
-    fun test(str: String) {
-        getBaseView()!!.setData(str)
-    }
-
     /**
      * 获取首页文章列表
      * @param pageNum 页码
@@ -55,5 +51,25 @@ class MainPresenter : BasePresenter<MainView>() {
                     getBaseView()!!.setError(str)
                 }
             })
+    }
+
+    /**
+     * 获取置顶文章
+     */
+    fun getHomeTopArticles() {
+        HttpUtils.sendHttp(HttpUtils.createApi(MainApi::class.java).getHomeTopArticles(), object :
+            RequestListener<BaseModel<List<MainModel.DatasBean>>> {
+            override fun onSuccess(data: BaseModel<List<MainModel.DatasBean>>) {
+                if (data.errorCode == 0) {
+                    getBaseView()!!.setMainData(data.data, 103)
+                } else {
+                    getBaseView()!!.setError(data.errorMsg)
+                }
+            }
+
+            override fun onFail(str: String) {
+                getBaseView()!!.setError(str)
+            }
+        })
     }
 }

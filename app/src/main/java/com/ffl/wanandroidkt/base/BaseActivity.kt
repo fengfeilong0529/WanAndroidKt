@@ -1,13 +1,16 @@
 package com.ffl.wanandroidkt.base
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.ffl.wanandroidkt.mvp.presenter.BasePresenter
 import com.ffl.wanandroidkt.mvp.view.BaseView
+import com.loading.dialog.AndroidLoadingDialog
 
 abstract class BaseActivity<V, P : BasePresenter<V>> : AppCompatActivity(), BaseView {
 
     private var mPresenter: P? = null
+    private var mProgressDialog: AndroidLoadingDialog? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +32,21 @@ abstract class BaseActivity<V, P : BasePresenter<V>> : AppCompatActivity(), Base
     protected abstract fun createPresenter(): P?
 
     fun getPresenter() = mPresenter
+
+    protected fun showToast(msg: String) {
+        Toast.makeText(MyApp.context, msg, Toast.LENGTH_SHORT).show()
+    }
+
+    protected fun showProgressDialog() {
+        if (mProgressDialog == null) {
+            mProgressDialog = AndroidLoadingDialog().setOnTouchOutside(false)
+        }
+        mProgressDialog!!.show(fragmentManager, "")
+    }
+
+    protected fun hideProgressDialog() {
+        mProgressDialog!!.dismiss()
+    }
 
     override fun onDestroy() {
         super.onDestroy()

@@ -60,10 +60,10 @@ class MainModel {
         var apkLink: String? = null
         var audit: Int = 0
         var author: String? = null
-        var isCanEdit: Boolean = false
+        var canEdit: Boolean = false
         var chapterId: Int = 0
         var chapterName: String? = null
-        var isCollect: Boolean = false
+        var collect: Boolean = false
         var courseId: Int = 0
         var desc: String? = null
         var descMd: String? = null
@@ -90,8 +90,10 @@ class MainModel {
         var visible: Int = 0
         var zan: Int = 0
         var tags: List<*>? = null
+        var top = false
+
         override fun toString(): String {
-            return "DatasBean(apkLink=$apkLink, audit=$audit, author=$author, isCanEdit=$isCanEdit, chapterId=$chapterId, chapterName=$chapterName, isCollect=$isCollect, courseId=$courseId, desc=$desc, descMd=$descMd, envelopePic=$envelopePic, fresh=$fresh, host=$host, id=$id, link=$link, niceDate=$niceDate, niceShareDate=$niceShareDate, origin=$origin, prefix=$prefix, projectLink=$projectLink, publishTime=$publishTime, realSuperChapterId=$realSuperChapterId, selfVisible=$selfVisible, shareDate=$shareDate, shareUser=$shareUser, superChapterId=$superChapterId, superChapterName=$superChapterName, title=$title, type=$type, userId=$userId, visible=$visible, zan=$zan, tags=$tags)"
+            return "DatasBean(apkLink=$apkLink, audit=$audit, author=$author, canEdit=$canEdit, chapterId=$chapterId, chapterName=$chapterName, collect=$collect, courseId=$courseId, desc=$desc, descMd=$descMd, envelopePic=$envelopePic, fresh=$fresh, host=$host, id=$id, link=$link, niceDate=$niceDate, niceShareDate=$niceShareDate, origin=$origin, prefix=$prefix, projectLink=$projectLink, publishTime=$publishTime, realSuperChapterId=$realSuperChapterId, selfVisible=$selfVisible, shareDate=$shareDate, shareUser=$shareUser, superChapterId=$superChapterId, superChapterName=$superChapterName, title=$title, type=$type, userId=$userId, visible=$visible, zan=$zan, tags=$tags)"
         }
 
 

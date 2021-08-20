@@ -6,14 +6,94 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="我的"
-            android:textColor="@color/black"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="206dp"
+            android:background="@color/color_btn_blue"
+            app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_collect"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:id="@+id/ivNoti"
+                android:scaleType="centerInside"/>
+
+        <ImageView
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                app:layout_constraintTop_toBottomOf="@+id/ivNoti"
+                android:layout_marginTop="5dp"
+                android:id="@+id/ivAvatar"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_welcome"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:ellipsize="end"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ivAvatar"
+                android:text="fengfl"
+                android:textColor="@color/white"
+                android:id="@+id/tvUserName"
+                android:layout_marginTop="5dp"
+                android:textSize="18sp"/>
+
+        <View
+                android:layout_width="10dp"
+                android:layout_height="1dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvUserName"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:id="@+id/viewMiddle"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:layout_marginTop="5dp"
+                app:layout_constraintTop_toBottomOf="@+id/tvUserName"
+                app:layout_constraintEnd_toStartOf="@id/viewMiddle"
+                android:text="等级:123"
+                android:id="@+id/tvLevel"
+                android:textColor="@color/white"
+                android:textSize="12sp"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:id="@+id/tvRank"
+                android:layout_marginTop="5dp"
+                app:layout_constraintTop_toBottomOf="@+id/tvUserName"
+                app:layout_constraintStart_toEndOf="@id/viewMiddle"
+                android:text="排名:1212"
+                android:textColor="@color/white"
+                android:textSize="12sp"/>
+
+        <TextView
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:id="@+id/tvPersonnalSign"
+                app:layout_constraintTop_toBottomOf="@+id/tvLevel"
+                android:layout_marginTop="5dp"
+                android:text="写个个性签名鼓励下自己吧~"
+                android:textColor="@color/white"
+                android:textSize="12sp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

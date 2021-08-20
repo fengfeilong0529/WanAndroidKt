@@ -18,5 +18,10 @@ class HomeRvAdapter(layoutResId: Int, data: MutableList<MainModel.DatasBean>?) :
             .setText(R.id.tvAuthor, if (item.userId == -1) item.author else item.shareUser)
             .setText(R.id.tvOrder, item.superChapterName + "·" + item.chapterName)
             .setGone(R.id.tvNew, !item.fresh)
+            .setGone(R.id.flTop, !item.top)
+            .setImageResource(
+                R.id.ivCollect,
+                if (item.collect) R.drawable.ic_collect_pressed else R.drawable.ic_collect_normal
+            )
     }
 }

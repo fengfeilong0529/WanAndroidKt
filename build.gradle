@@ -8,6 +8,7 @@ buildscript {
         jcenter()
         mavenCentral()
         maven { url "https://s01.oss.sonatype.org/content/groups/public" }
+        maven { url 'https://jitpack.io' }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.3.2'
@@ -24,6 +25,7 @@ allprojects {
         jcenter()
         mavenCentral()
         maven { url "https://s01.oss.sonatype.org/content/groups/public" }
+        maven { url 'https://jitpack.io' }
     }
 }
 

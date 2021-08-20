@@ -2,6 +2,7 @@ package com.ffl.wanandroidkt.ui.main.fragment
 
 import android.content.Intent
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -17,12 +18,13 @@ import com.ffl.wanandroidkt.ui.main.model.BannerModel
 import com.ffl.wanandroidkt.ui.main.model.MainModel
 import com.ffl.wanandroidkt.ui.main.presenter.MainPresenter
 import com.ffl.wanandroidkt.ui.main.view.MainView
+import com.youth.banner.Banner
 import com.youth.banner.adapter.BannerImageAdapter
 import com.youth.banner.holder.BannerImageHolder
 import com.youth.banner.indicator.CircleIndicator
 import com.youth.banner.listener.OnBannerListener
-import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
+import kotlinx.android.synthetic.main.view_home_banner.view.*
 
 class HomeFragment : BaseFragment<MainView, MainPresenter>(), MainView, OnLoadMoreListener {
 
@@ -30,12 +32,14 @@ class HomeFragment : BaseFragment<MainView, MainPresenter>(), MainView, OnLoadMo
     private var mAdapter = HomeRvAdapter(R.layout.item_home_rv, mHomeList)
     private var mRvHome: RecyclerView? = null
     private var mPageIndex = 0
+    private var mVpBanner: Banner<*, *>? = null
 
     override fun createPresenter() = MainPresenter()
 
     override fun getLayoutId() = R.layout.fragment_home
 
     override fun initView(view: View) {
+        mRvHome = view.findViewById(R.id.rvHome)
         mRvHome = view.findViewById(R.id.rvHome)
         view.rvHome.layoutManager = LinearLayoutManager(activity)
         view.rvHome.adapter = mAdapter
@@ -47,14 +51,21 @@ class HomeFragment : BaseFragment<MainView, MainPresenter>(), MainView, OnLoadMo
             }
         })
         mAdapter.loadMoreModule.setOnLoadMoreListener(this)
+        val headerView = LayoutInflater.from(activity).inflate(R.layout.view_home_banner, null)
+        if (mAdapter.hasHeaderLayout()) return
+        mVpBanner = headerView.vpBanner
+        mAdapter.addHeaderView(headerView)
     }
 
     override fun initData() {
+        showProgressDialog()
+        getPresenter()!!.getHomeTopArticles()
         loadArticleList()
         getPresenter()!!.getHomeBanner()
     }
 
     private fun loadArticleList() {
+        mPageIndex = 0
         getPresenter()!!.getHomeArticleList(mPageIndex)
     }
 
@@ -64,11 +75,16 @@ class HomeFragment : BaseFragment<MainView, MainPresenter>(), MainView, OnLoadMo
     override fun <T> setMainData(data: T, code: Int) {
         super.setMainData(data, code)
         if (code == 101) {
+            hideProgressDialog()
             if (data is MainModel) {
                 mPageIndex++
-                if (mPageIndex == 1){
-                    mAdapter.setNewData(data.datas as MutableList<MainModel.DatasBean>?)
-                }else{
+                if (mPageIndex == 1) {
+                    if (mAdapter.data.isEmpty()) {
+                        mAdapter.setNewData(data.datas as MutableList<MainModel.DatasBean>)
+                    } else {
+                        mAdapter.addData(data.datas as MutableList<MainModel.DatasBean>)
+                    }
+                } else {
                     mAdapter.addData(data.datas as MutableList<MainModel.DatasBean>)
                 }
                 mAdapter.loadMoreModule.isEnableLoadMore = data.curPage != data.pageCount
@@ -77,7 +93,7 @@ class HomeFragment : BaseFragment<MainView, MainPresenter>(), MainView, OnLoadMo
         } else if (code == 102) {
 //            Log.e("FFL", "=====轮播图=====$data")
             val list = data as List<BannerModel>
-            vpBanner.addBannerLifecycleObserver(this)
+            mVpBanner!!.addBannerLifecycleObserver(this)
                 .setAdapter(object : BannerImageAdapter<BannerModel>(list) {
                     override fun onBindView(holder: BannerImageHolder?, data: BannerModel?, position: Int, size: Int) {
                         Glide.with(holder!!.itemView).load(data!!.imagePath).into(holder.imageView)
@@ -91,6 +107,19 @@ class HomeFragment : BaseFragment<MainView, MainPresenter>(), MainView, OnLoadMo
                         WebActivity.startActivity(activity!!, title, url)
                     }
                 })
+        } else if (code == 103) {
+            val list = data as List<MainModel.DatasBean>
+            Log.e("FFL", "置顶文章数量=${list.size}")
+            for (item in list) {
+                item.top = true
+            }
+            if (mAdapter.data.isEmpty()) {
+                mAdapter.setNewData(data as MutableList<MainModel.DatasBean>)
+            } else {
+                var listNew = mutableListOf<MainModel.DatasBean>()
+                listNew.addAll(list)
+                mAdapter.setNewData(listNew)
+            }
         }
     }
 

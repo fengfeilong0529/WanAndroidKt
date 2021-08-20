@@ -23,9 +23,6 @@ class MainActivity : BaseActivity<MainView, MainPresenter>(), MainView, ViewPage
     override fun getLayoutId(): Int = R.layout.activity_main
 
     override fun initView() {
-        rbtnHome.setOnClickListener {
-            getPresenter()!!.test("我是测试数据！")
-        }
         mFragments.add(HomeFragment())
         mFragments.add(ArchitectureFragment())
         mFragments.add(QAFragment())

@@ -49,6 +49,7 @@ dependencies {
     //Glide
     api 'com.github.bumptech.glide:glide:4.11.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+    api 'com.tencent:mmkv-static:1.2.10'
 }
 repositories {
     mavenCentral()

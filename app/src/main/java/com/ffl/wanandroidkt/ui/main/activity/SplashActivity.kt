@@ -7,6 +7,9 @@ import android.view.Window
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import com.ffl.wanandroidkt.R
+import com.ffl.wanandroidkt.base.Constants
+import com.ffl.wanandroidkt.utils.StateBarUtil
+import com.tencent.mmkv.MMKV
 import kotlinx.android.synthetic.main.activity_splash.*
 
 class SplashActivity : AppCompatActivity() {
@@ -26,16 +29,26 @@ class SplashActivity : AppCompatActivity() {
     private fun initListener() {
         tvSkip.setOnClickListener {
             mHandler.removeCallbacksAndMessages(null)
-            startActivity(Intent(this, MainActivity::class.java))
-            finish()
+            toNextPage()
         }
     }
 
     fun initData() {
         mHandler.postDelayed({
+            toNextPage()
+        }, 3000)
+    }
+
+    private fun toNextPage() {
+        val mmkv = MMKV.defaultMMKV()
+        val isFirstStart = mmkv.decodeBool(Constants.KEY_FIRST_START, true)
+        if (isFirstStart) {
+            //跳转到登录界面
+            startActivity(Intent(this@SplashActivity, LoginActivity::class.java))
+        } else {
             //跳转到主界面
             startActivity(Intent(this@SplashActivity, MainActivity::class.java))
-            finish()
-        }, 3000)
+        }
+        finish()
     }
 }

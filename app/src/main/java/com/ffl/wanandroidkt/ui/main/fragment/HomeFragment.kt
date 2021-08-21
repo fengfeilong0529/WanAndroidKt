@@ -18,6 +18,7 @@ import com.ffl.wanandroidkt.ui.main.model.BannerModel
 import com.ffl.wanandroidkt.ui.main.model.MainModel
 import com.ffl.wanandroidkt.ui.main.presenter.MainPresenter
 import com.ffl.wanandroidkt.ui.main.view.MainView
+import com.ffl.wanandroidkt.view.HeadView
 import com.youth.banner.Banner
 import com.youth.banner.adapter.BannerImageAdapter
 import com.youth.banner.holder.BannerImageHolder
@@ -55,18 +56,36 @@ class HomeFragment : BaseFragment<MainView, MainPresenter>(), MainView, OnLoadMo
         if (mAdapter.hasHeaderLayout()) return
         mVpBanner = headerView.vpBanner
         mAdapter.addHeaderView(headerView)
+
+        view.headView.setOnHeadClickListener(object :HeadView.HeadClickListener{
+            override fun onClickBack() {
+                showToast("left")
+            }
+
+            override fun onClickTitle() {
+                //点击标题返回列表顶部
+                mRvHome!!.smoothScrollToPosition(0)
+            }
+
+            override fun onClickMore() {
+                //跳转到搜索界面
+
+            }
+        })
     }
 
     override fun initData() {
         showProgressDialog()
-        getPresenter()!!.getHomeTopArticles()
+        getPresenter()?.getHomeTopArticles()
+
+        mAdapter.data.clear()
+        mPageIndex = 0
         loadArticleList()
-        getPresenter()!!.getHomeBanner()
+        getPresenter()?.getHomeBanner()
     }
 
     private fun loadArticleList() {
-        mPageIndex = 0
-        getPresenter()!!.getHomeArticleList(mPageIndex)
+        getPresenter()?.getHomeArticleList(mPageIndex)
     }
 
     override fun <T> setData(data: T) {

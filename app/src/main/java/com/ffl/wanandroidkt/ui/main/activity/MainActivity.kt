@@ -13,12 +13,18 @@ import com.ffl.wanandroidkt.ui.main.fragment.MyFragment
 import com.ffl.wanandroidkt.ui.main.fragment.QAFragment
 import com.ffl.wanandroidkt.ui.main.presenter.MainPresenter
 import com.ffl.wanandroidkt.ui.main.view.MainView
+import com.ffl.wanandroidkt.utils.StateBarUtil
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity<MainView, MainPresenter>(), MainView, ViewPager.OnPageChangeListener,
     RadioGroup.OnCheckedChangeListener {
 
     private var mFragments = ArrayList<Fragment>()
+
+    override fun beforeSetContentView() {
+        //设置状态栏深色字体
+        StateBarUtil.setStateBarFont(window.decorView)
+    }
 
     override fun getLayoutId(): Int = R.layout.activity_main
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#408080</color>
-    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorPrimaryDark">#FFFFFF</color>
     <color name="colorAccent">#D81B60</color>
 
     <color name="white">#ffffff</color>
@@ -36,5 +36,9 @@
     <color name="color_btn_blue">#058BA8</color>
     <color name="color_btn_blue_dark">#0C2944</color>
     <color name="color_btn_online_blue">#00B3EA</color>
+
+    <color name="mainColor">#FFCC00</color>
+    <color name="mainColorPress">#CC9933</color>
+    <color name="colorForeground">#BDBDBD</color>
 
 </resources>

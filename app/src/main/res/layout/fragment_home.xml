@@ -6,16 +6,20 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <!--<com.youth.banner.Banner-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="0dp"-->
-            <!--app:layout_constraintTop_toTopOf="parent"-->
-            <!--android:id="@+id/vpBanner"-->
-            <!--app:layout_constraintDimensionRatio="16:9"/>-->
+    <com.ffl.wanandroidkt.view.HeadView
+            android:id="@+id/headView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hvTitle="首页"
+            app:layout_constraintTop_toTopOf="parent"
+            app:hvRightIconShow="true"
+            app:hvLeftIconHide="false"/>
 
     <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvHome"
+            app:layout_constraintTop_toBottomOf="@+id/headView"
+            app:layout_constraintBottom_toBottomOf="parent"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="0dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="HeadView">
+        <attr name="hvLeftIconHide" format="boolean" />
+        <attr name="hvTitle" format="string" />
+        <attr name="hvRightIconShow" format="boolean" />
+        <attr name="hvRightIconSrc" format="reference" />
+        <attr name="hvLeftIconSrc" format="reference" />
+    </declare-styleable>
+</resources>

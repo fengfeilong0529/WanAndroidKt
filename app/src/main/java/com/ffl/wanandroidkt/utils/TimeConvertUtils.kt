@@ -13,6 +13,7 @@ import java.util.*
 object TimeConvertUtils {
 
     val formatString = "yyyy-MM-dd HH:mm:ss"
+    val formatString12 = "yyyy-MM-dd HH:mm"
     val formatString1 = "yyyy-MM-dd 00:00:00"
     val formatString2 = "yyyyMMddHHmmss"
     val formatString3 = "yyyyMMdd.HHmmss"

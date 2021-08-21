@@ -13,6 +13,7 @@ abstract class BaseActivity<V, P : BasePresenter<V>> : AppCompatActivity(), Base
     private var mProgressDialog: AndroidLoadingDialog? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        beforeSetContentView()
         super.onCreate(savedInstanceState)
         setContentView(getLayoutId())
         if (mPresenter == null) {
@@ -22,6 +23,8 @@ abstract class BaseActivity<V, P : BasePresenter<V>> : AppCompatActivity(), Base
         initView()
         initData()
     }
+
+    open fun beforeSetContentView() {}
 
     protected abstract fun getLayoutId(): Int
 

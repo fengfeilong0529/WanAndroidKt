@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.chad.library.adapter.base.BaseQuickAdapter
+import com.chad.library.adapter.base.listener.OnItemChildClickListener
 import com.chad.library.adapter.base.listener.OnItemClickListener
 import com.chad.library.adapter.base.listener.OnLoadMoreListener
 import com.ffl.wanandroidkt.R
@@ -56,6 +57,12 @@ class HomeFragment : BaseFragment<MainView, MainPresenter>(), MainView, OnLoadMo
         if (mAdapter.hasHeaderLayout()) return
         mVpBanner = headerView.vpBanner
         mAdapter.addHeaderView(headerView)
+        mAdapter.addChildClickViewIds(R.id.ivCollect)
+        mAdapter.setOnItemChildClickListener(object :OnItemChildClickListener{
+            override fun onItemChildClick(p0: BaseQuickAdapter<*, *>, p1: View, p2: Int) {
+
+            }
+        })
 
         view.headView.setOnHeadClickListener(object :HeadView.HeadClickListener{
             override fun onClickBack() {

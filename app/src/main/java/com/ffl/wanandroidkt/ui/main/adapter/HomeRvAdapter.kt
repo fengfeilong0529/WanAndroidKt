@@ -31,9 +31,10 @@ class HomeRvAdapter(layoutResId: Int, data: MutableList<MainModel.DatasBean>?) :
             .setGone(R.id.tvNew, !item.fresh)
             .setGone(R.id.flTop, !item.top)
             .setGone(R.id.ivCover, TextUtils.isEmpty(item.envelopePic))
+            .setGone(R.id.tvContent, TextUtils.isEmpty(item.desc))
             .setImageResource(
                 R.id.ivCollect,
-                if (item.collect) R.drawable.ic_collect_pressed else R.drawable.ic_collect_normal
+                if (item.collect) R.drawable.ic_collect_pressed else R.drawable.ic_collect
             )
         Glide.with(context).load(item.envelopePic).into(holder.itemView.ivCover)
 

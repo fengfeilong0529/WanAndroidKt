@@ -61,9 +61,9 @@ class MainPresenter : BasePresenter<MainView>() {
             RequestListener<BaseModel<List<MainModel.DatasBean>>> {
             override fun onSuccess(data: BaseModel<List<MainModel.DatasBean>>) {
                 if (data.errorCode == 0) {
-                    getBaseView()!!.setMainData(data.data, 103)
+                    getBaseView()?.setMainData(data.data, 103)
                 } else {
-                    getBaseView()!!.setError(data.errorMsg)
+                    getBaseView()?.setError(data.errorMsg)
                 }
             }
 

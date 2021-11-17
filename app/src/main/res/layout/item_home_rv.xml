@@ -140,7 +140,7 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:scaleType="centerInside"
-            android:src="@drawable/ic_collect"
+            android:src="@drawable/selector_collect"
             app:layout_constraintTop_toTopOf="@+id/tvOrder"
             app:layout_constraintBottom_toBottomOf="@+id/tvOrder"
             app:layout_constraintEnd_toEndOf="parent" />

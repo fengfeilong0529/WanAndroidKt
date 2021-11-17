@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.main.activity.SysSettingActivity">
+
+    <com.ffl.wanandroidkt.view.HeadView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/headView"
+            app:hvTitle="系统设置"/>
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@color/white">
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="夜间模式"
+                android:gravity="center_vertical"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:paddingStart="10dp"/>
+
+        <androidx.appcompat.widget.SwitchCompat
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:id="@+id/swNightMode"
+                android:layout_marginEnd="10dp"/>
+    </RelativeLayout>
+
+    <com.ffl.wanandroidkt.view.SettingItemView
+            android:id="@+id/sivListAnim"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:sivContent="列表动画"
+            app:sivTip="无"
+            app:sivLeftIconHide="true"/>
+
+    <com.ffl.wanandroidkt.view.SettingItemView
+            android:id="@+id/sivClearCache"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:sivContent="清除缓存"
+            app:sivTip="0MB"
+            app:sivLeftIconHide="true"/>
+
+
+    <com.ffl.wanandroidkt.view.SettingItemView
+            android:id="@+id/sivOfficalWebsite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:sivContent="官方网站"
+            app:sivTip="https://wanandroid.com"
+            app:sivLeftIconHide="true"/>
+
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="退出登录"
+            android:gravity="center_vertical"
+            android:textSize="16sp"
+            android:background="@color/white"
+            android:textColor="@color/black"
+            android:paddingStart="10dp"/>
+</LinearLayout>

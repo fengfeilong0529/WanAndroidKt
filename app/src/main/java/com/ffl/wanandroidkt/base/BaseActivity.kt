@@ -5,6 +5,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.ffl.wanandroidkt.mvp.presenter.BasePresenter
 import com.ffl.wanandroidkt.mvp.view.BaseView
+import com.ffl.wanandroidkt.utils.StateBarUtil
 import com.loading.dialog.AndroidLoadingDialog
 
 abstract class BaseActivity<V, P : BasePresenter<V>> : AppCompatActivity(), BaseView {
@@ -24,7 +25,10 @@ abstract class BaseActivity<V, P : BasePresenter<V>> : AppCompatActivity(), Base
         initData()
     }
 
-    open fun beforeSetContentView() {}
+    open fun beforeSetContentView() {
+        //设置状态栏深色字体
+        StateBarUtil.setStateBarFont(window.decorView)
+    }
 
     protected abstract fun getLayoutId(): Int
 

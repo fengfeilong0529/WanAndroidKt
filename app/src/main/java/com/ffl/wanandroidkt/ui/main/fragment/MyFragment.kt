@@ -9,6 +9,7 @@ import com.ffl.wanandroidkt.R
 import com.ffl.wanandroidkt.base.BaseFragment
 import com.ffl.wanandroidkt.base.Constants
 import com.ffl.wanandroidkt.ui.main.activity.LoginActivity
+import com.ffl.wanandroidkt.ui.main.activity.SysSettingActivity
 import com.ffl.wanandroidkt.ui.main.model.LoginModel
 import com.ffl.wanandroidkt.ui.main.presenter.MyPresenter
 import com.ffl.wanandroidkt.ui.main.view.MyView
@@ -28,12 +29,19 @@ class MyFragment : BaseFragment<MyView, MyPresenter>() {
             startActivity(Intent(activity, LoginActivity::class.java))
         }
         mTvUserName = view.tvUserName
+
+        view.sivScore.setOnClickListener { showToast("我的积分") }
+        view.sivShare.setOnClickListener { showToast("我的分享") }
+        view.sivCollect.setOnClickListener { showToast("我的收藏") }
+        view.sivSysSetting.setOnClickListener {
+            startActivity(Intent(context, SysSettingActivity::class.java))
+        }
     }
 
     private fun setUI() {
         val loginData = MMKV.defaultMMKV().decodeString(Constants.KEY_LOGIN_DATA)
         val loginModel = GsonHelper.getInstance().fromJson(loginData, LoginModel::class.java)
-        Log.i("MyFragment", "登录数据==》${loginModel.toString()}")
+        Log.i("MyFragment", "登录数据==》$loginModel")
 
         mTvUserName.text = loginModel.nickname
     }

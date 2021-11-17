@@ -9,16 +9,10 @@ import com.ffl.wanandroidkt.base.Constants
 import com.ffl.wanandroidkt.ui.main.model.LoginModel
 import com.ffl.wanandroidkt.ui.main.presenter.LoginPresenter
 import com.ffl.wanandroidkt.ui.main.view.LoginView
-import com.ffl.wanandroidkt.utils.StateBarUtil
 import com.tencent.mmkv.MMKV
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : BaseActivity<LoginView, LoginPresenter>(), LoginView {
-
-    override fun beforeSetContentView() {
-        //设置状态栏深色字体
-        StateBarUtil.setStateBarFont(window.decorView)
-    }
 
     override fun getLayoutId() = R.layout.activity_login
 

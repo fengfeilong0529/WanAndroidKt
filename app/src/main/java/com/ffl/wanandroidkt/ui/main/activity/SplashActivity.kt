@@ -6,10 +6,9 @@ import android.os.Handler
 import android.view.Window
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
+import com.ffl.baselib.helper.MMKVHelper
 import com.ffl.wanandroidkt.R
 import com.ffl.wanandroidkt.base.Constants
-import com.ffl.wanandroidkt.utils.StateBarUtil
-import com.tencent.mmkv.MMKV
 import kotlinx.android.synthetic.main.activity_splash.*
 
 class SplashActivity : AppCompatActivity() {
@@ -40,8 +39,7 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun toNextPage() {
-        val mmkv = MMKV.defaultMMKV()
-        val isFirstStart = mmkv.decodeBool(Constants.KEY_FIRST_START, true)
+        val isFirstStart = MMKVHelper.getInstance().getBoolean(Constants.KEY_FIRST_START, true)
         if (isFirstStart) {
             //跳转到登录界面
             startActivity(Intent(this@SplashActivity, LoginActivity::class.java))

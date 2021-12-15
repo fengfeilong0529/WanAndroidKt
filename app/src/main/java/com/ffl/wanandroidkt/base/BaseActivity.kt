@@ -3,6 +3,7 @@ package com.ffl.wanandroidkt.base
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.ffl.baselib.helper.MMKVHelper
 import com.ffl.wanandroidkt.mvp.presenter.BasePresenter
 import com.ffl.wanandroidkt.mvp.view.BaseView
 import com.ffl.wanandroidkt.utils.StateBarUtil
@@ -27,7 +28,9 @@ abstract class BaseActivity<V, P : BasePresenter<V>> : AppCompatActivity(), Base
 
     open fun beforeSetContentView() {
         //设置状态栏深色字体
-        StateBarUtil.setStateBarFont(window.decorView)
+        if (!MMKVHelper.getInstance().getBoolean(Constants.KEY_NIGHT_MODE, false)) {
+            StateBarUtil.setStateBarFont(window.decorView)
+        }
     }
 
     protected abstract fun getLayoutId(): Int

@@ -4,6 +4,7 @@ import android.content.Intent
 import android.util.Log
 import android.view.View
 import android.widget.TextView
+import com.ffl.baselib.helper.MMKVHelper
 import com.ffl.baselib.util.GsonHelper
 import com.ffl.wanandroidkt.R
 import com.ffl.wanandroidkt.base.BaseFragment
@@ -13,7 +14,6 @@ import com.ffl.wanandroidkt.ui.main.activity.SysSettingActivity
 import com.ffl.wanandroidkt.ui.main.model.LoginModel
 import com.ffl.wanandroidkt.ui.main.presenter.MyPresenter
 import com.ffl.wanandroidkt.ui.main.view.MyView
-import com.tencent.mmkv.MMKV
 import kotlinx.android.synthetic.main.fragment_my.view.*
 
 class MyFragment : BaseFragment<MyView, MyPresenter>() {
@@ -39,7 +39,7 @@ class MyFragment : BaseFragment<MyView, MyPresenter>() {
     }
 
     private fun setUI() {
-        val loginData = MMKV.defaultMMKV().decodeString(Constants.KEY_LOGIN_DATA)
+        val loginData = MMKVHelper.getInstance().getString(Constants.KEY_LOGIN_DATA)
         val loginModel = GsonHelper.getInstance().fromJson(loginData, LoginModel::class.java)
         Log.i("MyFragment", "登录数据==》$loginModel")
 

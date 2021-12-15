@@ -2,10 +2,10 @@ package com.ffl.wanandroidkt.base
 
 import android.app.Application
 import android.content.Context
-import android.util.Log
+import androidx.appcompat.app.AppCompatDelegate
+import com.ffl.baselib.helper.MMKVHelper
 import com.orhanobut.logger.AndroidLogAdapter
 import com.orhanobut.logger.Logger
-import com.tencent.mmkv.MMKV
 import kotlin.properties.Delegates
 
 class MyApp : Application() {
@@ -23,9 +23,13 @@ class MyApp : Application() {
         super.onCreate()
         mInstance = this
         context = applicationContext
-        val rootDir = MMKV.initialize(this)
-        Log.i("Application", "MMKV rootDir===> $rootDir")
+        MMKVHelper.getInstance().init(this)
         Logger.addLogAdapter(AndroidLogAdapter())
+
+        if (MMKVHelper.getInstance().getBoolean(Constants.KEY_NIGHT_MODE, false))
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        else
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
     }
 
 }

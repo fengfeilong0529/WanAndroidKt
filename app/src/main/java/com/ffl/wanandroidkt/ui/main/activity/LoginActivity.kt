@@ -2,6 +2,7 @@ package com.ffl.wanandroidkt.ui.main.activity
 
 import android.content.Intent
 import android.text.TextUtils
+import com.ffl.baselib.helper.MMKVManager
 import com.ffl.baselib.util.GsonHelper
 import com.ffl.wanandroidkt.R
 import com.ffl.wanandroidkt.base.BaseActivity

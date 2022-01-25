@@ -1,5 +1,6 @@
 package com.ffl.wanandroidkt.ui.main.adapter
 
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
@@ -11,4 +12,8 @@ class HomeVpAdapter(fm: FragmentManager, fragments : ArrayList<Fragment>) : Frag
     override fun getItem(position: Int): Fragment =  mFragments[position]
 
     override fun getCount(): Int =mFragments.size
+
+    override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
+
+    }
 }

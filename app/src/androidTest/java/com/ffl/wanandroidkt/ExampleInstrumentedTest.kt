@@ -2,6 +2,9 @@ package com.ffl.wanandroidkt
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 import org.junit.Test
 import org.junit.runner.RunWith

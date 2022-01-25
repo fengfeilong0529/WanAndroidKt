@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#408080</color>
+    <color name="colorPrimaryDark">#0C1E3F</color>
+    <color name="colorAccent">#ffa000</color>
+
+    <color name="mainColor">#0C1E3F</color>
+    <color name="mainColorPress">#CC9933</color>
+    <color name="colorForeground">#BDBDBD</color>
+    <color name="white">#000000</color>
+    <color name="black">#ffffff</color>
+    <color name="background">#1343A9</color>
+    <color name="background_press">#1343A9</color>
+    <color name="black_translucent">#10000000</color>
+    <color name="black_translucent1">#bb333333</color>
+    <color name="color_333">#333</color>
+    <color name="color_48">#484848</color>
+    <color name="color_666">#666</color>
+    <color name="color_999">#999</color>
+    <color name="color_f2">#484848</color>
+    <color name="color_fa0">#ffa000</color>
+    <color name="color_3ea1fe">#3ea1fe</color>
+    <color name="color_1acdb2">#1acdb2</color>
+    <color name="color_fb6868">#fb6868</color>
+    <color name="color_green">#00ff00</color>
+    <color name="color_green_switch">#49d866</color>
+    <color name="color_red">#ff0000</color>
+
+    <color name="color_main_bg">#408080</color>
+    <color name="color_main_bg_new">#0C1E3F</color>
+    <color name="color_main_bg_item">#085470</color>
+    <color name="color_main_text">#3ea1fe</color>
+    <color name="color_login_txt">#00BCD4</color>
+
+    <color name="color_btn_green">#02F5A5</color>
+    <color name="color_btn_green_dark">#00C97B</color>
+    <color name="color_btn_yellow">#FEC64D</color>
+    <color name="color_btn_yellow_dark">#FD9E04</color>
+    <color name="color_btn_blue">#058BA8</color>
+    <color name="color_btn_blue_dark">#0C2944</color>
+    <color name="color_btn_online_blue">#00B3EA</color>
+
+
+
+</resources>

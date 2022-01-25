@@ -38,16 +38,16 @@ class HeadView : ConstraintLayout {
         }
         if (attrs != null) {
             val ta = context!!.obtainStyledAttributes(attrs, R.styleable.HeadView)
-            val title = ta.getString(R.styleable.HeadView_hvTitle);
-            mTvTitle?.setText(title)
-            val leftDrawable = ta.getDrawable(R.styleable.HeadView_hvLeftIconSrc)
-            val rightDrawable = ta.getDrawable(R.styleable.HeadView_hvRightIconSrc)
+            val title = ta.getString(R.styleable.HeadView_hvTitle)
+            mTvTitle?.text = title
+            val leftDrawable = ta.getResourceId(R.styleable.HeadView_hvLeftIconSrc,R.drawable.ic_back)
+            val rightDrawable = ta.getResourceId(R.styleable.HeadView_hvRightIconSrc,R.drawable.ic_score)
             val leftIconHide = ta.getBoolean(R.styleable.HeadView_hvLeftIconHide, false)
             val rightIconShow = ta.getBoolean(R.styleable.HeadView_hvRightIconShow, false)
-            mIvBack?.setImageDrawable(leftDrawable)
-            mIvMore?.setImageDrawable(rightDrawable)
-//            mIvBack!!.visibility = /*if (leftIconHide) INVISIBLE else*/ VISIBLE
-            mIvMore?.visibility = /*if (rightIconShow) VISIBLE else INVISIBLE*/ VISIBLE
+            mIvBack?.setImageResource(leftDrawable)
+            mIvMore?.setImageResource(rightDrawable)
+            mIvBack?.visibility = if (leftIconHide) INVISIBLE else VISIBLE
+            mIvMore?.visibility = if (rightIconShow) VISIBLE else INVISIBLE
             ta.recycle()
         }
     }

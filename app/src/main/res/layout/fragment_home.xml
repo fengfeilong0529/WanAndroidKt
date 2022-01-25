@@ -13,7 +13,8 @@
             app:hvTitle="首页"
             app:layout_constraintTop_toTopOf="parent"
             app:hvRightIconShow="true"
-            app:hvLeftIconHide="false"/>
+            app:hvLeftIconHide="true"
+            app:hvRightIconSrc="@drawable/search"/>
 
     <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvHome"

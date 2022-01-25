@@ -7,4 +7,11 @@
         <attr name="hvRightIconSrc" format="reference" />
         <attr name="hvLeftIconSrc" format="reference" />
     </declare-styleable>
+     <declare-styleable name="SettingItemView">
+        <attr name="sivContent" format="string" />
+        <attr name="sivTip" format="string" />
+        <attr name="sivLeftIconSrc" format="reference" />
+        <attr name="sivLeftIconHide" format="boolean" />
+    </declare-styleable>
+
 </resources>

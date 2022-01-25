@@ -34,9 +34,8 @@ class HomeRvAdapter(layoutResId: Int, data: MutableList<MainModel.DatasBean>?) :
             .setGone(R.id.tvContent, TextUtils.isEmpty(item.desc))
             .setImageResource(
                 R.id.ivCollect,
-                if (item.collect) R.drawable.ic_collect_pressed else R.drawable.ic_collect
+                if (item.collect) R.drawable.ic_collect_pressed else R.drawable.selector_collect
             )
         Glide.with(context).load(item.envelopePic).into(holder.itemView.ivCover)
-
     }
 }

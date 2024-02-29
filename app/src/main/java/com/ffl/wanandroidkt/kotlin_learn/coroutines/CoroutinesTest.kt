@@ -1,9 +1,6 @@
 package com.ffl.wanandroidkt.kotlin_learn.coroutines
 
-import android.os.SystemClock
 import android.util.Log
-import androidx.lifecycle.LiveData
-import com.ffl.wanandroidkt.base.MyApp
 import kotlinx.coroutines.*
 
 /**
@@ -48,7 +45,7 @@ class CoroutinesTest {
     private suspend fun requestNet(): String {
         Log.d("coroutine", "requestNet: ${Thread.currentThread().name}")
         delay(2000)
-        return "测试name";
+        return "测试name"
     }
 
 }

@@ -4,6 +4,7 @@ import android.content.Intent
 import android.util.Log
 import android.view.View
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 import com.ffl.baselib.helper.MMKVHelper
 import com.ffl.baselib.util.GsonHelper
 import com.ffl.wanandroidkt.R
@@ -25,8 +26,8 @@ class MyFragment : BaseFragment<MyView, MyPresenter>() {
     override fun getLayoutId() = R.layout.fragment_my
 
     override fun initView(view: View) {
-        view.ivAvatar.setOnClickListener {
-            startActivity(Intent(activity, LoginActivity::class.java))
+        view.btnLogout.setOnClickListener {
+            showLogoutDialog()
         }
         mTvUserName = view.tvUserName
 
@@ -35,6 +36,19 @@ class MyFragment : BaseFragment<MyView, MyPresenter>() {
         view.sivCollect.setOnClickListener { showToast("我的收藏") }
         view.sivSysSetting.setOnClickListener {
             startActivity(Intent(context, SysSettingActivity::class.java))
+        }
+    }
+
+    private fun showLogoutDialog() {
+        context?.let {
+            AlertDialog.Builder(it)
+                .setTitle("提示")
+                .setMessage("确定要退出登录吗？")
+                .setPositiveButton(
+                    "确定"
+                ) { _, _ -> startActivity(Intent(activity, LoginActivity::class.java)) }
+                .setNegativeButton("取消", null)
+                .show()
         }
     }
 
